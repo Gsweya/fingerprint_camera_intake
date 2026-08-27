@@ -1,0 +1,7 @@
+files/contactless-fingerprint/python/__pycache__/
+files/contactless-fingerprint/python/_debug_*.png
+files/contactless-fingerprint/python/output_ridge_image.png
+files/contactless-fingerprint/python/templates.db
+files/contactless-fingerprint/python/registry.csv
+files/contactless-fingerprint/android/app/.gradle/
+*.pyc
