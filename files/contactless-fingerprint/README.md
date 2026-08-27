@@ -15,10 +15,10 @@ entirely on your capture rig (macro lens, lighting, distance).
 [Python: OpenCV preprocessing]  -- enhance, binarize, thin -->
         |
         v
-[Python: SourceAFIS] -- extract minutiae + template -->
+[Python: AFIS compatibility layer] -- extract minutiae + template -->
         |
         v
-[SourceAFIS matcher] -- 1:1 or 1:N match against stored templates (SQLite/DB)
+[AFIS matcher] -- 1:1 or 1:N match against stored templates (SQLite/DB)
 ```
 
 ## Repo layout
@@ -49,10 +49,31 @@ python enroll.py --image sample_finger_1.jpg --id person_001
 
 # Try to match a new photo against the enrolled DB
 python match.py --image sample_finger_1_retake.jpg
+
+# Verify a claimed identity against the DB
+python verify.py --image sample_finger_1_retake.jpg --id person_001
+
+# Live webcam demo
+python live_demo.py --mode register --id person_001 --name "Alice"
+python live_demo.py --mode verify --id person_001
+python live_demo.py --mode match
 ```
 
 No Android device needed to test the core pipeline — just feed it finger photos
 taken with any phone camera (macro mode, good raking light, ~5-8cm distance).
+
+### Registry and matching
+
+- `enroll.py` stores the template in SQLite and also writes `registry.csv`
+  with a human-readable name.
+- `match.py` does 1:N identification and prints the name from the registry if
+  it exists.
+- `verify.py` does 1:1 verification against a claimed `person_id`.
+- `live_demo.py` opens the webcam and lets you capture/register/verify/match
+  with keyboard controls.
+- `preprocess.py --test-mode` enables faster downscaled processing for large
+  phone images.
+- `preprocess.py` now auto-crops the skin region by default.
 
 ## Android app
 
