@@ -4,4 +4,12 @@ files/contactless-fingerprint/python/output_ridge_image.png
 files/contactless-fingerprint/python/templates.db
 files/contactless-fingerprint/python/registry.csv
 files/contactless-fingerprint/android/app/.gradle/
+files/contactless-fingerprint/android/.gradle/
+files/contactless-fingerprint/android/.kotlin/
+files/contactless-fingerprint/android/build/
+files/contactless-fingerprint/android/app/build/
+files/contactless-fingerprint/android/local.properties
+files/contactless-fingerprint/python/_debug_*.txt
+fingerprint_*.jpg
+fingerprint_*.png
 *.pyc
